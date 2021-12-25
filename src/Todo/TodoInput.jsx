@@ -1,24 +1,33 @@
 import { useState } from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 function TodoInput({ onAdd }) {
   const [state, setState] = useState("");
 
   return (
-    <div>
-      <input
-        value={state}
-        onChange={(e) => setState(e.target.value)}
-        placeholder="Add something"
-      />
-      <button
-        onClick={() => {
-          onAdd(state);
-          setState("");
-        }}
-      >
-        ADD
-      </button>
-    </div>
+    <Box>
+      <div>
+        <TextField
+          label="Add events"
+          color="secondary"
+          focused
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          placeholder="Add something"
+        />
+        <Button
+          variant="contained"
+          onClick={() => {
+            onAdd(state);
+            setState("");
+          }}
+        >
+          ADD
+        </Button>
+      </div>
+    </Box>
   );
 }
 
